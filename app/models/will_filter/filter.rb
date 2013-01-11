@@ -815,8 +815,9 @@ module WillFilter
 
         if custom_conditions?
           recs = process_custom_conditions(recs.all)
-          recs = Kaminari.paginate_array(recs)
         end  
+
+        recs = Kaminari.paginate_array(recs)
 
         recs = recs.page(page).per(per_page)
         recs.wf_filter = self
